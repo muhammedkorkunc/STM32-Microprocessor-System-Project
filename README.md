@@ -35,13 +35,13 @@ $$f_{PWM} = \frac{f_{CLK}}{(PSC + 1) \times (ARR + 1)}$$
 
 ADC 12-bit çözünürlükle $0 - 4095$ arasında değer üretir. Servo puls genişliği ise $250 - 1250$ tick aralığına eşlenir:
 
-$$PWM = 250 + \frac{\text{ADC\_Val}}{4.1}$$
+$$PWM = 250 + \frac{ADC}{4.1}$$
 
 ### 3. USART Açı Gönderimi
 
-Okunan potansiyometre değeri eş zamanlı olarak $0^\circ - 180^\circ$ açı formatına dönüştürülür ve Termite seri arayüzüne string formatında basılır:
+Okunan potansiyometre değeri eş zamanlı olarak $0^\circ - 180^\circ$ açı formatına dönüştürülür ve Termite seri arayüzüne aktarılır:
 
-$$\text{Angle} = \frac{\text{ADC\_Val} \times 180}{4096}$$
+$$Angle = \frac{ADC \times 180}{4096}$$
 
 ---
 
@@ -65,8 +65,6 @@ void EXTI15_10_IRQHandler(void) {
     }
 }
 
-USART Üzerinden Açı Telemetrisi
-
 float calculateAngleFromADC(void) {
     HAL_ADC_Start(&hadc1);
     if (HAL_ADC_PollForConversion(&hadc1, 1000) == HAL_OK) {
@@ -76,9 +74,6 @@ float calculateAngleFromADC(void) {
     }
     return 0.0f;
 }
-
-🔒 Copyright & License / Telif Hakkı Bildirimi
-Bu proje ve beraberindeki teknik rapor Proprietary (Tescilli / Tüm Hakları Saklıdır) lisansına tabidir.
 
 Copyright (c) 2026 Muhammed Emin Korkunç. All Rights Reserved.
 
@@ -97,4 +92,6 @@ LinkedIn: Muhammed Emin Korkunç
 GitHub: @muhammedkorkunc
 
 Fatih Sultan Mehmet Vakıf Üniversitesi — Bilgisayar Mühendisliği Bölümü
+
+
 ```
