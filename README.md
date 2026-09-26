@@ -35,13 +35,13 @@ $$f_{PWM} = \frac{f_{CLK}}{(PSC + 1) \times (ARR + 1)}$$
 
 ADC 12-bit çözünürlükle $0 - 4095$ arasında değer üretir. Servo puls genişliği ise $250 - 1250$ tick aralığına eşlenir:
 
-$$PWM = 250 + \frac{\text{ADC\_Value}}{4.1}$$
+$$PWM = 250 + \frac{\text{ADC\_Val}}{4.1}$$
 
 ### 3. USART Açı Gönderimi
 
 Okunan potansiyometre değeri eş zamanlı olarak $0^\circ - 180^\circ$ açı formatına dönüştürülür ve Termite seri arayüzüne string formatında basılır:
 
-$$\text{Angle} = \frac{\text{ADC\_Value} \times 180}{4096}$$
+$$\text{Angle} = \frac{\text{ADC\_Val} \times 180}{4096}$$
 
 ---
 
@@ -79,6 +79,7 @@ float calculateAngleFromADC(void) {
 
 🔒 Copyright & License / Telif Hakkı Bildirimi
 Bu proje ve beraberindeki teknik rapor Proprietary (Tescilli / Tüm Hakları Saklıdır) lisansına tabidir.
+
 Copyright (c) 2026 Muhammed Emin Korkunç. All Rights Reserved.
 
 Bu projenin tüm analizleri, STM32 çevre birim mimarisi, hesaplamaları
@@ -95,4 +96,5 @@ LinkedIn: Muhammed Emin Korkunç
 
 GitHub: @muhammedkorkunc
 
+Fatih Sultan Mehmet Vakıf Üniversitesi — Bilgisayar Mühendisliği Bölümü
 ```
